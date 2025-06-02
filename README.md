@@ -14,16 +14,25 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y libaa-bin
 CMD ["aafire"]
 ```
-3. Собираем образ: ```docker build -t aafire .```.
-5. Запускаем контейнер: ```docker run -it aafire```.
+3. Собираем образ.
+```
+docker build -t aafire .
+```
+4. Запускаем контейнер.
+```
+docker run -it aafire
+```
 ![](screenshots/6.png)
-6. Добавляем в Dockerfile установку ping.
+5. Добавляем в Dockerfile установку ping.
 ```
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y libaa-bin iputils-ping
 CMD ["aafire"]
 ```
-6. Пересобираем образ: ```docker build -t aafire .```.
+6. Пересобираем образ.
+```
+docker build -t aafire .
+```
 7. Запускаем контейнеры.
 ```
 docker run -dit --name con1 aafire
@@ -31,15 +40,21 @@ docker run -dit --name con2 aafire
 ```
 8. Проверяем работают ли контейнеры.
 ![](screenshots/7.png)
-9. Создаем сеть: ```docker network create myNetwork```.
+9. Создаем сеть.
+```
+docker network create myNetwork
+```
 10. Подключаем контейнеры к сети.
 ```
 docker network connect myNetwork con1
 docker network connect myNetwork con2
 ```
-12. Смотрим настройки созданной сети: ```docker network inspect myNetwork```.
+11. Смотрим настройки созданной сети.
+```
+docker network inspect myNetwork
+```
 ![](screenshots/8.png)
-13. Подключаемся к контейнерам и проверяем соединение между ними.
+12. Подключаемся к контейнерам и проверяем соединение между ними.
 ```
 docker exec -it con1 /bin/bash
 ping con2
