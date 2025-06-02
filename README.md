@@ -15,11 +15,12 @@ RUN apt-get update && apt-get install -y libaa-bin
 CMD ["aafire"]
 ```
 3. Собираем образ.
+
 ```docker build -t aafire .```
-4. Запускаем контейнер.
+5. Запускаем контейнер.
 ```docker run -it aafire```
 ![](screenshots/6.png)
-5. Добавляем в Dockerfile установку ping.
+6. Добавляем в Dockerfile установку ping.
 ```
 FROM ubuntu:latest
 RUN apt-get update && apt-get install -y libaa-bin iputils-ping
