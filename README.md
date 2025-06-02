@@ -25,17 +25,21 @@ CMD ["aafire"]
 ```
 6. Пересобираем образ: ```docker build -t aafire .```.
 7. Запускаем контейнеры.
-```docker run -dit --name con1 aafire```
-```docker run -dit --name con2 aafire```
+```
+docker run -dit --name con1 aafire
+docker run -dit --name con2 aafire
+```
 8. Проверяем работают ли контейнеры.
 ![](screenshots/7.png)
 9. Создаем сеть: ```docker network create myNetwork```.
 10. Подключаем контейнеры к сети.
-```docker network connect myNetwork con1```
-```docker network connect myNetwork con2```
-11. Смотрим настройки созданной сети: ```docker network inspect myNetwork```.
+```
+docker network connect myNetwork con1
+docker network connect myNetwork con2
+```
+12. Смотрим настройки созданной сети: ```docker network inspect myNetwork```.
 ![](screenshots/8.png)
-12. Подключаемся к контейнерам и проверяем соединение между ними.
+13. Подключаемся к контейнерам и проверяем соединение между ними.
 ```
 docker exec -it con1 /bin/bash
 ping con2
